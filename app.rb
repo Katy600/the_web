@@ -8,17 +8,13 @@ get '/secret' do
   "my secret is that I have a very messy room at the moment!"
 end
 
-get '/coffee' do
-  "I like my coffee black and strong"
-end
-
-get '/run' do
-  "I should really go for a run"
-end
-
-get '/cat' do
+get '/random-cat' do
+@names = ["Amigo", "Oscar", "Viking"].sample
 erb(:index)
 end
 
-
-# <img src="smiley.gif" alt="Smiley face" border="5">
+get '/named-cat' do
+  p params
+  @names = params[:name]
+  erb(:index)
+end
